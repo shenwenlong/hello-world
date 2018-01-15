@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.shenwl.test.springmvc.dao.TeacherDAO">  
+  <!-- 查询用户对象,返回User对象 -->  
+  <select id="getTeacherById"   
+    parameterType="int"   
+    flushCache="true"   
+    resultType="com.shenwl.test.springmvc.entity.TeacherEntity">  
+    select   
+        *
+    from tb_teacher   
+    where id = #{id}  
+  </select>  
+  
+    
+</mapper> 
