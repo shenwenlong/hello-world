@@ -22,7 +22,7 @@
 				<form id="login" role="form">
 					<div class="form-group">
 						<label for="username">UserName</label>
-						<input type="text" id="username" class="form-control username"/>
+						<input type="text" name="username" class="form-control username"/>
 					</div>
 					<div class="form-group">
 						<lable for="password">Password</lable>
@@ -54,7 +54,7 @@
 		console.log(window.location.pathname);
 		$('#login').find('#add').click(function(event) {
 			/* Act on the event */
-			$(location).attr('href', window.location.pathname+'pages/user/userInit.jsp');
+			$(location).attr('href', window.location.pathname+'pages/user/addUser.jsp');
 		});
 
 		$('#login').find('#submit').click(function(event) {
@@ -63,9 +63,33 @@
 				console.log("ERROR:username or password is empty!");
 			}else{
 				console.log("INFO:check success!");
-			}
-		});
-
+				console.log($('#login').serialize());
+				var contextPath = window.location.pathname;
+				console.log(contextPath);
+				$.ajax({
+					url: contextPath+'login',
+					type: 'post',
+					dataType: 'json',
+					data: $('#login').serialize()
+				})
+				.done(function(data) {
+					if (data.flag){
+						console.log(data.message);
+						$(location).attr('href', window.location.pathname+'pages/user/userInit.jsp');
+					}
+					else
+						console.log(data.message);
+				})
+				.fail(function() {
+					console.log("error");
+					
+				})
+				.always(function() {
+					console.log("complete");
+				});
+				}
+			});
+		
 		function validateInputValue(id){
 			$('#'+id).find('input.username').each(function(index, el) {
 				if($(el).val == '') return false;
