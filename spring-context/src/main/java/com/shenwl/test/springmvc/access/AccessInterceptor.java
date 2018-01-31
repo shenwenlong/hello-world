@@ -16,8 +16,11 @@ public class AccessInterceptor extends HandlerInterceptorAdapter {
 		throws Exception {
 		log.debug(this.getClass().getName()+" 拦截器启动");
 		ServletContext sc = request.getServletContext().getContext("USERS");
-		log.debug(request.getRequestURI().endsWith("login"));
-		if(null != sc || request.getRequestURI().endsWith("login"))
+		log.debug("RequestURI["+request.getRequestURI()+"]");
+		log.debug("ContextPath["+request.getContextPath()+"]");
+		if(null != sc || request.getRequestURI().endsWith("login") 
+				|| request.getRequestURI().contains("rest/"))
+			
 			return true;
 		else {
 			response.sendRedirect(request.getContextPath()+"/");  
