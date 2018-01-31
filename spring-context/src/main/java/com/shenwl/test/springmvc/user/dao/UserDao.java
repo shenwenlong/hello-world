@@ -7,4 +7,6 @@ import com.shenwl.test.springmvc.user.entity.UserEntity;
 @Component
 public interface UserDao {
 	public UserEntity getUserByIdAndName(String id, String name);
+	
+	public int addUser(UserEntity ue);
 }

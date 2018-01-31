@@ -22,4 +22,8 @@ public class UserDomain {
 	public Boolean login(String name, String password) {
 		return true;
 	}
+	
+	public int addUser(UserEntity ue) {
+		return userDao.addUser(ue);
+	}
 }

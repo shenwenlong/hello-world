@@ -13,6 +13,19 @@
     from tb_user   
     where id = #{id}  and name = #{name}
   </select>  
-  
+  <insert id="addUser" parameterType="com.shenwl.test.springmvc.user.entity.UserEntity">
+  	insert into tb_user (
+  		id, name, password, agentId, email, phone, identityId, birthday
+  	) values (
+  		#{id}, 
+  		#{name}, 
+  		#{password}, 
+  		#{agentId}, 
+  		#{email}, 
+  		#{phone}, 
+  		#{identityIdv},
+  		#{birthday}
+  	)
+  </insert>
     
 </mapper> 

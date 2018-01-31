@@ -11,6 +11,7 @@
 </head>
 <body>
 	
+	<!-- <div id="modal_addUserConfirm"></div> -->
 	<div class="container ">
 		<div class="row">
 			<div class="col-sm-4 col-sm-push-4">
@@ -25,13 +26,13 @@
 						<input type="text" name="username" class="form-control username"/>
 					</div>
 					<div class="form-group">
-						<lable for="password">Password</lable>
+						<label for="password">Password</label>
 						<input type="password" name="password" class="form-control password"/>
 					</div>
 					
 					<div class="form-group col-sm-push-4">
 						<div class="col-sm-3 ">
-							<button id="add" type="button" class="btn btn-link">add an account</button> 
+							<button id="add" type="button" class="btn btn-link" >add an account</button> 
 							<!-- <a href="">add an account</a> -->
 						</div>
 						<div class="col-sm-3 col-sm-offset-3">
@@ -45,17 +46,23 @@
 			</div>
 		</div>	
 	</div>
+	<!-- <div id="modal_addUser"></div> -->
 	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/spring-context/pages/user/js/user.js"></script>
 	
 	<script>
 	$(function(){
-		console.log(window.location.pathname);
+		// 加载模态框html
+		loadModal(getRootPath()+'/pages/user',"addUserModal");
+		
 		$('#login').find('#add').click(function(event) {
 			/* Act on the event */
-			$(location).attr('href', window.location.pathname+'pages/user/addUser.jsp');
+			addUserModal.show();
+			
 		});
+				
 
 		$('#login').find('#submit').click(function(event) {
 			/* Act on the event */
@@ -67,18 +74,22 @@
 				var contextPath = window.location.pathname;
 				console.log(contextPath);
 				$.ajax({
-					url: contextPath+'login',
+					url: contextPath+'user/login',
 					type: 'post',
 					dataType: 'json',
 					data: $('#login').serialize()
 				})
 				.done(function(data) {
-					if (data.flag){
-						console.log(data.message);
+					
+					var $responseObj = $.parseJSON(data);
+					console.log("done");
+					
+					if ($responseObj.flag){
+						
 						$(location).attr('href', window.location.pathname+'pages/user/userInit.jsp');
 					}
 					else
-						console.log(data.message);
+						console.log($responseObj.message);
 				})
 				.fail(function() {
 					console.log("error");

@@ -8,6 +8,7 @@ public class UserEntity {
 	private String agentId;
 	private String email;
 	private String phone;
+	private String identityId;
 	
 	public String getId() {
 		return id;
@@ -44,6 +45,12 @@ public class UserEntity {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getIdentityId() {
+		return identityId;
+	}
+	public void setIdentityId(String identityId) {
+		this.identityId = identityId;
 	}
 	
 	

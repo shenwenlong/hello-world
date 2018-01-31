@@ -1,0 +1,60 @@
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	   	<div class="modal-content">
+			<div class="modal-header">
+	               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	               <h4 class="modal-title" id="addUserLabel">Add User</h4>
+	           </div>
+	           <div class="modal-body">
+			<div class="container-fluid">
+				<!-- <div class="row"> -->
+				<form id="adduser" role="form">
+				
+					<div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="name">UserName</label>
+				      <input type="text" class="form-control" id="name" name="name" placeholder="user name">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="password">Password</label>
+				      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+				    </div>
+				  	</div>
+					
+					<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="email" >E-mail</label>
+						<input class="form-control" type="email" id="email" name="email" placeholder="E-mail"/>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="identityId" >IdentityId</label>
+						<input class="form-control" type="text" id="identityId" name="identityId" placeholder="identityId"/>
+					</div>
+					</div>
+					
+					<div class="form-row">
+					<div class="form-group col-md-8">
+						<label for="phone" >Phone</label>
+						<input class="form-control" type="text" id="phone" name="phone" placeholder="phone"/>
+					</div>
+					</div>
+					<div class="form-row">
+					<div class="form-group col-md-8">
+						<label for="birthday">Birthday</label>
+						<input class="form-control" type="text" id="birthday" name="birthday" placeholder="birthday"/>
+					</div>
+					</div>
+				</form>
+				<!--</div> row end -->
+			</div><!-- container end -->
+			</div>
+			<div class="modal-footer">
+		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" id="addUserConfirmButton" class="btn btn-primary">Save content</button>
+		    </div>
+		</div><!-- modal-content -->
+	</div><!-- modal-dialog -->
+</div><!-- modal fade -->
+
+
+
